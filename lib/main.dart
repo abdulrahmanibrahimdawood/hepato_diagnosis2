@@ -1,7 +1,9 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hepato/constant.dart';
+import 'package:hepato/firebase_options.dart';
 import 'package:hepato/pages/analysis_page.dart';
 import 'package:hepato/pages/doctors_page.dart';
 import 'package:hepato/pages/first_board_page.dart';
@@ -14,7 +16,11 @@ import 'package:hepato/pages/scound_board_page.dart';
 import 'package:hepato/pages/third_board_page.dart';
 import 'package:hepato/widget/custom_nav_bar.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // التأكد من تهيئة WidgetsBinding
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const Hepato());
 }
 
