@@ -19,12 +19,12 @@ class AnalysisPage extends StatelessWidget {
               text1: "Analysis",
             ),
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.all(16),
               child: Column(
                 children: [
                   CustomTextDiagnosis(
                       sufferFrom: 'IF you suffer from upper abdominal pain :-',
-                      analysis: 'Alkphos Alkaline Phosphatase. '),
+                      analysis: 'Alkaline Phosphatase. '),
                   SizedBox(
                     height: 15,
                   ),
@@ -45,18 +45,34 @@ class AnalysisPage extends StatelessWidget {
                         width: 50,
                       ),
                       CustomAnalysisTextFormFeild(
-                        data: "AAP",
+                        data: "ALT",
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
+                  ),
+
+                  Row(
+                    children: [
+                      CustomAnalysisTextFormFeild(
+                        data: "AST",
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      CustomAnalysisTextFormFeild(
+                        data: "ALP",
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
                   ),
 //==========================================================================================================
                   CustomTextDiagnosis(
-                      sufferFrom:
-                          'IF you suffer from anorexia, vomiting, fatigue :-',
-                      analysis: 'AlT , AST. '),
+                      sufferFrom: 'IF you suffer from jaundice :-',
+                      analysis: 'Direct Bilirubin.'),
                   SizedBox(
                     height: 15,
                   ),
@@ -71,31 +87,20 @@ class AnalysisPage extends StatelessWidget {
                       CustomAnalysisTextFormFeild(
                         data: "AST",
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-//==========================================================================================================
-                  CustomTextDiagnosis(
-                      sufferFrom: 'IF you suffer from jaundice :-',
-                      analysis: 'Direct Bilirubin.'),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
+                      SizedBox(
+                        width: 50,
+                      ),
                       CustomAnalysisTextFormFeild(
                         data: "DBIL",
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 50,
                   ),
 //==========================================================================================================
                   CustomTextDiagnosis(
-                      sufferFrom: 'IF you suffer from edema lower limb :-',
+                      sufferFrom: 'IF you suffer from ascites :-',
                       analysis: 'Albumin.'),
                   SizedBox(
                     height: 15,
@@ -103,7 +108,19 @@ class AnalysisPage extends StatelessWidget {
                   Row(
                     children: [
                       CustomAnalysisTextFormFeild(
-                        data: "ALP",
+                        data: "ALT",
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      CustomAnalysisTextFormFeild(
+                        data: "AST",
+                      ),
+                      SizedBox(
+                        width: 50,
+                      ),
+                      CustomAnalysisTextFormFeild(
+                        data: "ALB",
                       ),
                     ],
                   ),

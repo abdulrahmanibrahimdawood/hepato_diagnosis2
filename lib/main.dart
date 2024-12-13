@@ -47,11 +47,11 @@ class Hepato extends StatelessWidget {
             kAnalysisPage: (context) => const AnalysisPage(),
             kQuestionsPage: (context) => const QuesthionsPage(),
             kDoctorsPage: (context) => const DoctorsPage(),
-            kCustomBottomAppBarIcons: (context) => const CustomNavBar(),
+            kCustomNavBar: (context) => const CustomNavBar(),
           },
           debugShowCheckedModeBanner: false,
           home: const Scaffold(
-            body: CustomNavBar(),
+            body: AnalysisPage(),
             //   body: AnimatedSplashScreen(
             //     duration: 2000,
             //     splash: Center(

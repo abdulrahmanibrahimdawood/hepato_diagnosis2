@@ -35,7 +35,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           child: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, kCustomBottomAppBarIcons);
+              Navigator.pushNamed(context, kCustomNavBar);
             },
             icon: const FaIcon(
               FontAwesomeIcons.arrowLeft,
