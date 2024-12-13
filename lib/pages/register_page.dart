@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hepato/constant.dart';
@@ -8,8 +9,10 @@ import 'package:hepato/widget/custom_row_icons_login.dart';
 import 'package:hepato/widget/custom_text_form_feild.dart';
 
 class Register extends StatelessWidget {
-  const Register({super.key});
+  Register({super.key});
   static String id = kRegister;
+  String? email;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
@@ -41,23 +44,30 @@ class Register extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, kLogInPage);
                             },
-                            text: 'Sign in',
+                            text: 'Log in',
                           ),
                           const CustomInkWellLogIn(
-                            text: 'Sign up',
+                            text: 'Register',
                             borderColor: kPrimaryColor,
                           ),
                         ],
                       ),
                     ),
                     SizedBox(height: 15.h),
-                    const CustomTextFormFeild(
+                    CustomTextFormFeild(
+                      onChanged: (data) {
+                        email = data;
+                      },
                       hintText: 'Email',
                       icon: Icons.email,
                     ),
                     SizedBox(height: 20.h),
-                    const CustomTextFormFeild(
-                        hintText: 'Password', icon: Icons.lock),
+                    CustomTextFormFeild(
+                        onChanged: (data) {
+                          password = data;
+                        },
+                        hintText: 'Password',
+                        icon: Icons.lock),
                     SizedBox(height: 10.h),
                     Align(
                       alignment: Alignment.centerRight,
@@ -67,10 +77,29 @@ class Register extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10.h),
-                    const CustomButtomLogIn(text: 'Sign in'),
+                    CustomButtomLogIn(
+                        onTap: () async {
+                          try {
+                            await registerUser();
+                            showSnakBar(context, 'success');
+                          } on FirebaseAuthException catch (ex) {
+                            if (ex.code == 'weak-password') {
+                              showSnakBar(context,
+                                  'The password provided is too weak.');
+                            } else if (ex.code == 'email-already-in-use') {
+                              showSnakBar(context,
+                                  'The account already exists for that email.');
+                            }
+                          } catch (ex) {
+                            print('Unexpected error: $ex');
+                            showSnakBar(
+                                context, 'An unexpected error occurred.');
+                          }
+                        },
+                        text: 'Register'),
                     SizedBox(height: 20.h),
                     const CustomRowDivider(
-                      text: 'Or Sign up with',
+                      text: 'Or Register with',
                     ),
                     SizedBox(height: 20.h),
                     const RowIconsLogIn(),
@@ -82,5 +111,18 @@ class Register extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void showSnakBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
+
+  Future<void> registerUser() async {
+    UserCredential user = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(email: email!, password: password!);
   }
 }

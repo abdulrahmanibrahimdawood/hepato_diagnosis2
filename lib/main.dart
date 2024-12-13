@@ -42,7 +42,7 @@ class Hepato extends StatelessWidget {
             kScoundPage: (context) => const ScoundPage(),
             kThirdPage: (context) => const ThirdPage(),
             kLogInPage: (context) => const LogInPage(),
-            kRegister: (context) => const Register(),
+            kRegister: (context) => Register(),
             kHomePage: (context) => const HomePage(),
             kAnalysisPage: (context) => const AnalysisPage(),
             kQuestionsPage: (context) => const QuesthionsPage(),

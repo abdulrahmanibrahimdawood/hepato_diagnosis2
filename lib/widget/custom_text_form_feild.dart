@@ -2,14 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormFeild extends StatelessWidget {
-  const CustomTextFormFeild(
-      {super.key, required this.hintText, required this.icon, this.color});
+  CustomTextFormFeild(
+      {super.key,
+      required this.hintText,
+      required this.icon,
+      this.color,
+      this.onChanged});
   final String hintText;
   final IconData? icon;
   final Color? color;
+  Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       decoration: InputDecoration(
         prefixIcon: Padding(
           padding: EdgeInsets.symmetric(vertical: 5.h),

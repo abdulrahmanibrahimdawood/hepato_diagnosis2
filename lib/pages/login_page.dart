@@ -37,14 +37,14 @@ class LogInPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const CustomInkWellLogIn(
-                            text: 'Sign in',
+                            text: 'Log in',
                             borderColor: kPrimaryColor,
                           ),
                           CustomInkWellLogIn(
                             onTap: () {
                               Navigator.pushNamed(context, kRegister);
                             },
-                            text: 'Sign up',
+                            text: 'Register',
                           ),
                         ],
                       ),
@@ -52,14 +52,14 @@ class LogInPage extends StatelessWidget {
                     SizedBox(
                       height: 15.h,
                     ),
-                    const CustomTextFormFeild(
+                    CustomTextFormFeild(
                       icon: Icons.email,
                       hintText: 'Email',
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
-                    const CustomTextFormFeild(
+                    CustomTextFormFeild(
                       icon: Icons.lock,
                       hintText: 'Password',
                     ),
@@ -76,14 +76,15 @@ class LogInPage extends StatelessWidget {
                     SizedBox(
                       height: 10.h,
                     ),
-                    const CustomButtomLogIn(
-                      text: 'Sign in',
+                    CustomButtomLogIn(
+                      onTap: () {},
+                      text: 'Log in',
                     ),
                     SizedBox(
                       height: 20.h,
                     ),
                     const CustomRowDivider(
-                      text: 'Or Sign in with',
+                      text: 'Or Log in with',
                     ),
                     SizedBox(
                       height: 20.h,
