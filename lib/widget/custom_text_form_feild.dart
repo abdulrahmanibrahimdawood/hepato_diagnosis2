@@ -15,6 +15,11 @@ class CustomTextFormFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (data) {
+        if (data!.isEmpty) {
+          return 'feild is required';
+        }
+      },
       onChanged: onChanged,
       decoration: InputDecoration(
         prefixIcon: Padding(

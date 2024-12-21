@@ -13,6 +13,7 @@ class Register extends StatelessWidget {
   static String id = kRegister;
   String? email;
   String? password;
+  GlobalKey<FormState> formkey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -32,78 +33,83 @@ class Register extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomInkWellLogIn(
-                            onTap: () {
-                              Navigator.pushNamed(context, kLogInPage);
-                            },
-                            text: 'Log in',
-                          ),
-                          const CustomInkWellLogIn(
-                            text: 'Register',
-                            borderColor: kPrimaryColor,
-                          ),
-                        ],
+                child: Form(
+                  key: formkey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomInkWellLogIn(
+                              onTap: () {
+                                Navigator.pushNamed(context, kLogInPage);
+                              },
+                              text: 'Log in',
+                            ),
+                            const CustomInkWellLogIn(
+                              text: 'Register',
+                              borderColor: kPrimaryColor,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 15.h),
-                    CustomTextFormFeild(
-                      onChanged: (data) {
-                        email = data;
-                      },
-                      hintText: 'Email',
-                      icon: Icons.email,
-                    ),
-                    SizedBox(height: 20.h),
-                    CustomTextFormFeild(
+                      SizedBox(height: 15.h),
+                      CustomTextFormFeild(
                         onChanged: (data) {
-                          password = data;
+                          email = data;
                         },
-                        hintText: 'Password',
-                        icon: Icons.lock),
-                    SizedBox(height: 10.h),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Forget Password !",
-                        style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+                        hintText: 'Email',
+                        icon: Icons.email,
                       ),
-                    ),
-                    SizedBox(height: 10.h),
-                    CustomButtomLogIn(
-                        onTap: () async {
-                          try {
-                            await registerUser();
-                            showSnakBar(context, 'success');
-                          } on FirebaseAuthException catch (ex) {
-                            if (ex.code == 'weak-password') {
-                              showSnakBar(context,
-                                  'The password provided is too weak.');
-                            } else if (ex.code == 'email-already-in-use') {
-                              showSnakBar(context,
-                                  'The account already exists for that email.');
-                            }
-                          } catch (ex) {
-                            print('Unexpected error: $ex');
-                            showSnakBar(
-                                context, 'An unexpected error occurred.');
-                          }
-                        },
-                        text: 'Register'),
-                    SizedBox(height: 20.h),
-                    const CustomRowDivider(
-                      text: 'Or Register with',
-                    ),
-                    SizedBox(height: 20.h),
-                    const RowIconsLogIn(),
-                  ],
+                      SizedBox(height: 20.h),
+                      CustomTextFormFeild(
+                          onChanged: (data) {
+                            password = data;
+                          },
+                          hintText: 'Password',
+                          icon: Icons.lock),
+                      SizedBox(height: 10.h),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "Forget Password !",
+                          style: TextStyle(fontSize: 14.sp, color: Colors.grey),
+                        ),
+                      ),
+                      SizedBox(height: 10.h),
+                      CustomButtomLogIn(
+                          onTap: () async {
+                            if (formkey.currentState!.validate()) {
+                              try {
+                                await registerUser();
+                                showSnakBar(context, 'success');
+                              } on FirebaseAuthException catch (ex) {
+                                if (ex.code == 'weak-password') {
+                                  showSnakBar(context,
+                                      'The password provided is too weak.');
+                                } else if (ex.code == 'email-already-in-use') {
+                                  showSnakBar(context,
+                                      'The account already exists for that email.');
+                                }
+                              } catch (ex) {
+                                print('Unexpected error: $ex');
+                                showSnakBar(
+                                    context, 'An unexpected error occurred.');
+                              }
+                            } else {}
+                          },
+                          text: 'Register'),
+                      SizedBox(height: 20.h),
+                      const CustomRowDivider(
+                        text: 'Or Register with',
+                      ),
+                      SizedBox(height: 20.h),
+                      const RowIconsLogIn(),
+                    ],
+                  ),
                 ),
               )
             ],
