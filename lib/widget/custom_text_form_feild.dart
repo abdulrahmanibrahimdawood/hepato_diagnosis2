@@ -22,6 +22,7 @@ class CustomTextFormFeild extends StatelessWidget {
         if (data!.isEmpty) {
           return 'feild is required';
         }
+        return null;
       },
       onChanged: onChanged,
       decoration: InputDecoration(

@@ -97,7 +97,7 @@ class _OnBoardScreenStateState extends State<OnBoardScreenState> {
                         curve: Curves.linear);
                   },
                   child: index == 0
-                      ? Container(
+                      ? SizedBox(
                           height: MediaQuery.of(context).size.height * 0.07,
                           width: MediaQuery.of(context).size.width * 0.9,
                         )

@@ -11,7 +11,7 @@ import 'package:hepato/widget/custom_text_form_feild.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class Register extends StatefulWidget {
-  Register({super.key});
+  const Register({super.key});
   static String id = kRegister;
 
   @override

@@ -19,7 +19,7 @@ class CustomBodyQuestion extends StatelessWidget {
             width: 1.0,
           ),
           borderRadius: BorderRadius.circular(11),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 10,
               color: Color.fromARGB(255, 200, 199, 199),
