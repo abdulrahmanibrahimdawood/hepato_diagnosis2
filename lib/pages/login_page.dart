@@ -111,7 +111,7 @@ class _LogInPageState extends State<LogInPage> {
                               try {
                                 await signIn();
                                 showSnakBar(context, 'success');
-                                Navigator.pushNamed(context, kHomePage);
+                                Navigator.pushNamed(context, kCustomNavBar);
                               } on FirebaseAuthException catch (ex) {
                                 if (ex.code == 'user-not-found') {
                                   showSnakBar(

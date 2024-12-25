@@ -104,7 +104,7 @@ class _RegisterState extends State<Register> {
                                 try {
                                   await registerUser();
                                   showSnakBar(context, 'success');
-                                  Navigator.pushNamed(context, kHomePage);
+                                  Navigator.pushNamed(context, kCustomNavBar);
                                 } on FirebaseAuthException catch (ex) {
                                   if (ex.code == 'weak-password') {
                                     showSnakBar(context,
