@@ -33,7 +33,7 @@ class ScoundPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.015,
+            height: MediaQuery.of(context).size.height * 0.05,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),
