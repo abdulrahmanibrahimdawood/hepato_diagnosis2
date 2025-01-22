@@ -50,23 +50,22 @@ class Hepato extends StatelessWidget {
             kCustomNavBar: (context) => const CustomNavBar(),
           },
           debugShowCheckedModeBanner: false,
-          home: Scaffold(
-            // body: AnalysisPage(),
-            body: AnimatedSplashScreen(
-              duration: 2000,
-              splash: Center(
-                child: Transform.scale(
-                  scale: 2.5.w,
-                  child: Image.asset(
-                    'assets/splash.png',
-                  ),
-                ),
+          home: const Scaffold(body: LogInPage()
+              //  AnimatedSplashScreen(
+              //   duration: 2000,
+              //   splash: Center(
+              //     child: Transform.scale(
+              //       scale: 2.5.w,
+              //       child: Image.asset(
+              //         'assets/splash.png',
+              //       ),
+              //     ),
+              //   ),
+              //   nextScreen: const OnBoardScreenState(),
+              //   splashTransition: SplashTransition.fadeTransition,
+              //   backgroundColor: kPrimaryColor,
+              // ),
               ),
-              nextScreen: const OnBoardScreenState(),
-              splashTransition: SplashTransition.fadeTransition,
-              backgroundColor: kPrimaryColor,
-            ),
-          ),
         );
       },
     );

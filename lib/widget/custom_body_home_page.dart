@@ -10,10 +10,9 @@ class CustomBodyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
@@ -37,19 +36,29 @@ class CustomBodyHomePage extends StatelessWidget {
             const SizedBox(height: 10),
             const Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                'Welcome to HDx app !',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              child: Row(
+                children: [
+                  Text(
+                    'Welcome to ',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'HDx app !',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: kPrimaryColor),
+                  ),
+                ],
               ),
             ),
             const Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.bottomLeft,
               child: Text(
                 'Advice',
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(height: 15),
             const CustomDevicesListView(),
             const SizedBox(
               height: 15,
@@ -67,11 +76,11 @@ class CustomBodyHomePage extends StatelessWidget {
                     Navigator.pushNamed(context, kAnalysisPage);
                   },
                   child: const Text(
-                    'Go to analysis',
+                    'Go to know the result now',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontSize: 24),
+                        fontSize: 20),
                   ),
                 ),
               ),
