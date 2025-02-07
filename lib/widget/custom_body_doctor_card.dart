@@ -9,126 +9,127 @@ class CustomBodyDoctorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170,
+      height: 210,
       width: double.infinity,
       decoration: BoxDecoration(
         color: kPrimaryColor.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Row(
+      child: Row(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 12),
             child: CircleAvatar(
               radius: 60,
               backgroundImage: AssetImage('assets/three.png'),
             ),
           ),
-          SizedBox(
-            width: 15,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10),
+          const SizedBox(width: 15),
+          Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  children: [
-                    Text(
-                      'Name : ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                    Text(
-                      'Abdelaziz Mohamed',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(right: 155),
-                  child: Row(
+                const Text.rich(
+                  TextSpan(
                     children: [
-                      Text(
-                        'Age : ',
+                      TextSpan(
+                        text: 'Name: ',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                      Text(
-                        '20',
+                      TextSpan(
+                        text: 'Abdelaziz Mohamed',
                         style: TextStyle(fontSize: 18),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Phone : ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Age: ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 25),
-                      child: Text(
-                        '+201288656555',
+                      TextSpan(
+                        text: '20',
                         style: TextStyle(fontSize: 18),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Locathion : ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Phone: ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 30),
-                      child: Text(
-                        'Mit Ghamer',
+                      TextSpan(
+                        text: '+201288656555',
                         style: TextStyle(fontSize: 18),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Governorate : ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Governorate: ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 35),
-                      child: Text(
-                        'Dakahlia',
+                      TextSpan(
+                        text: 'Dakahlia',
                         style: TextStyle(fontSize: 18),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                ),
+                const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Location: ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      TextSpan(
+                        text: 'Mit ghamer',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      const TextSpan(
+                        text: 'View Location: ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.middle,
+                        child: GestureDetector(
+                          onTap: () {
+                            print('Location View Clicked');
+                          },
+                          child: const Text(
+                            'View',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

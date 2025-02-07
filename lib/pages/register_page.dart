@@ -87,14 +87,14 @@ class _RegisterState extends State<Register> {
                             hintText: 'Password',
                             icon: Icons.lock),
                         SizedBox(height: 10.h),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            "Forget Password !",
-                            style:
-                                TextStyle(fontSize: 14.sp, color: Colors.grey),
-                          ),
-                        ),
+                        // Align(
+                        //   alignment: Alignment.centerRight,
+                        //   child: Text(
+                        //     "Forget Password !",
+                        //     style:
+                        //         TextStyle(fontSize: 14.sp, color: Colors.grey),
+                        //   ),
+                        // ),
                         SizedBox(height: 10.h),
                         CustomButtomLogIn(
                             onTap: () async {

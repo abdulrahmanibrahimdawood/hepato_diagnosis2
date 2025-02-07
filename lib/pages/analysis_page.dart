@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hepato/constant.dart';
 import 'package:hepato/widget/custom_analysis_text_form_feild.dart';
 import 'package:hepato/widget/custom_app_bar.dart';
+import 'package:hepato/widget/custom_botton_login.dart';
 import 'package:hepato/widget/custom_text_diagnosis.dart';
 
 class AnalysisPage extends StatelessWidget {
@@ -11,26 +12,25 @@ class AnalysisPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
             children: [
-              CustomAppBar(
+              const CustomAppBar(
                 text1: "Show Results",
               ),
               Padding(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    CustomTextDiagnosis(
-                        sufferFrom:
-                            'IF you suffer from upper abdominal pain :-',
-                        analysis: 'Alkaline Phosphatase. '),
-                    SizedBox(
-                      height: 15,
+                    const CustomTextDiagnosis(
+                        sufferFrom: 'You should ...',
+                        analysis: 'ALT & AST & Total Protien. '),
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         CustomAnalysisTextFormFeild(
                           data: "Age",
@@ -51,11 +51,11 @@ class AnalysisPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
 
-                    Row(
+                    const Row(
                       children: [
                         CustomAnalysisTextFormFeild(
                           data: "AST",
@@ -63,69 +63,67 @@ class AnalysisPage extends StatelessWidget {
                         SizedBox(
                           width: 50,
                         ),
+                        CustomAnalysisTextFormFeild(
+                          data: "T Protien",
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    //==============================================================================================
+                    const CustomTextDiagnosis(
+                        sufferFrom:
+                            'IF you suffer from upper abdominal pain :-',
+                        analysis: 'Alkaline Phosphataes.'),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    const Row(
+                      children: [
                         CustomAnalysisTextFormFeild(
                           data: "ALP",
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 50,
+                    const SizedBox(
+                      height: 25,
                     ),
                     //==========================================================================================================
-                    CustomTextDiagnosis(
+                    const CustomTextDiagnosis(
                         sufferFrom: 'IF you suffer from jaundice :-',
                         analysis: 'Direct Bilirubin.'),
-                    SizedBox(
-                      height: 15,
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Row(
+                    const Row(
                       children: [
-                        CustomAnalysisTextFormFeild(
-                          data: "ALT",
-                        ),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        CustomAnalysisTextFormFeild(
-                          data: "AST",
-                        ),
-                        SizedBox(
-                          width: 50,
-                        ),
                         CustomAnalysisTextFormFeild(
                           data: "DBIL",
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 50,
+                    const SizedBox(
+                      height: 25,
                     ),
                     //==========================================================================================================
-                    CustomTextDiagnosis(
+                    const CustomTextDiagnosis(
                         sufferFrom: 'IF you suffer from ascites :-',
                         analysis: 'Albumin.'),
-                    SizedBox(
-                      height: 15,
+                    const SizedBox(
+                      height: 10,
                     ),
-                    Row(
+                    const Row(
                       children: [
-                        CustomAnalysisTextFormFeild(
-                          data: "ALT",
-                        ),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        CustomAnalysisTextFormFeild(
-                          data: "AST",
-                        ),
-                        SizedBox(
-                          width: 50,
-                        ),
                         CustomAnalysisTextFormFeild(
                           data: "ALB",
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    CustomButtomLogIn(text: 'Submit', onTap: () {})
                   ],
                 ),
               )

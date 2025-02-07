@@ -15,20 +15,20 @@ class CustomBodyHomePage extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const CustomIconsButtomHomePage(
+                CustomIconsButtomHomePage(
                   icon: FontAwesomeIcons.bars,
                 ),
                 Row(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       width: 15,
                     ),
-                    CustomImageProfile(
-                      onTap: () {},
-                    ),
+                    // CustomImageProfile(
+                    //   onTap: () {},
+                    // ),
                   ],
                 ),
               ],

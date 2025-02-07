@@ -26,10 +26,6 @@ class RowIconsLogIn extends StatelessWidget {
           SizedBox(
             width: 30.w,
           ),
-          const ContainerIcons(
-            icon: Icons.apple,
-            color: Colors.black,
-          ),
         ],
       ),
     );
