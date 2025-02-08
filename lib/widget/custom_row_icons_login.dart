@@ -45,7 +45,6 @@ class RowIconsLogIn extends StatelessWidget {
           // SizedBox(
           //   width: 30.w,
           // ),
-          //
         ],
       ),
     );
